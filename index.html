@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Append and appendChild Example</title>
+</head>
+<body>
+    <h1>Append and appendChild Example</h1>
+
+    <div id="parentDiv"></div>
+
+    <button id="parentButton">Append Button</button>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+    $(document).ready(function() {
+        $("#parentButton").click(function() {
+            $("#parentDiv").append(
+                '<div class="container" style="margin-bottom:20px">'+
+                    '<input type="text" name="name">'+
+                    '<button class="parentRemove" style="height: 24px; position:absolute; right:50%;">parentClose</button>'+
+                    '<button class="appendChild" style="height: 24px; position:absolute; right:45%;"">appendChild </button>'+
+                '</div>'
+            );
+        });
+
+        $(document).on('click', '.parentRemove', function() {
+            $(this).parent().remove();
+        });
+
+        $(document).on('click', '.appendChild', function() {
+            $(this).parent().append(
+                '<div style="margin-bottom:10px">'+
+                    'This is a child div.'+
+                    '<button class="childRemove" style="height: 24px; position:absolute; right:4%;">childClose</button>'+
+                '</div>'
+            );
+        });
+
+        $(document).on('click', '.childRemove', function() {
+            $(this).parent().remove();
+        });
+
+
+    });
+            
+    </script>
+</body>
+</html>
